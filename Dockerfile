@@ -10,6 +10,9 @@ RUN apt update \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 USER $USERNAME
 
+# Switch to home directory
+WORKDIR /home/$USERNAME
+
 # Install common dev dependencies
 RUN sudo apt upgrade -y \
     && sudo apt install -y build-essential git
